@@ -1,8 +1,55 @@
 <html>
   <head>
-  <title>OR VS</title>
+    <title>OR VS</title>
+    <link rel="stylesheet" href="./css/vs.css"/>
   </head>
   <body>
-    <h1>Ouderraad</h1>
+    <div class="wrapper">
+      <h2>OR Vondelschool presents</h2>
+      <h1>Vondel Summer Party</h1>
+      <h2>10 juni</h2>
+    </div>
+
+    <div class="wrapper">
+        <h2>Brouwerskolkje</h2>
+        <h3>Brouwerskolkweg 5, Overveen</h3>
+    </div>
+
+    <div class="wrapper">
+      <form action="https://mailthis.to/vondelschool.or@gmail.com"  method="POST" encType="multipart/form-data">
+        <input type="hidden" name="_subject" value="Aanmelding ouderfeest">
+        <input type="hidden" name="_after" value="https://ouderraad-vondelschool.github.io/ouderraad-vondelschool/confirmation.html">
+        <ul class="form-wrapper">
+          <li class="form-row">
+            <label for="name">Naam</label>
+            <input type="text" id="name" autocomplete="name">
+          </li>
+          <li class="form-row">
+            <label for="townborn">Email</label>
+            <input type="email" id="email" autocomplete="email">
+          </li>
+          <li class="form-row">
+            <label for="email">Aantal personen</label>
+            <input type="number" id="aantal">
+          </li>
+          <li class="form-row">
+            <label for="email">Feest</label>
+            <span>
+            <input type="checkbox" id="party" checked="checked">
+            &euro; 15,- p.p.</span>
+          </li>
+          <li class="form-row">
+            <label for="email">Walking Diner</label>
+            <span>
+            <input type="checkbox" id="diner">
+           &euro; 30,- p.p.</span>
+          </li>
+          <li class="form-row">
+            <button type="submit">Submit</button>
+          </li>
+        </ul>
+      </form>
+  </div>
+
   </body>
 </html>

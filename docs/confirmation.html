@@ -1,22 +1,45 @@
 <html>
   <head>
-    <title>OR VS</title>
+    <title>Ouderfeest Vondelschool</title>
     <link rel="stylesheet" href="./css/vs.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
   </head>
   <body>
+
     <div class="wrapper">
-      <h1>Vondel Summer Party</h1>
-      <h2>Aangemeld</h2>
+      <h2>OR Vondelschool presents</h2>
+      <h1></h1>
+      <h1 class="highlight wrapper">
+        <span>Vondel</span>
+        <span class="large">Summer</span>
+        <span>Party</span></h1>
+      <h2>10 juni</h2>
     </div>
 
     <div class="wrapper">
-        <p>
+        <h2>
           Bedankt voor de aanmelding voor de Vondel Summer Party op 10 Juni.
-        
-        </p>
+        </h2>
+        <h2>
+          We sturen binnenkort een betaalverzoek per email voor <span id="totaal">...</span> Euro.
+        </h2>
 
-      
     </div>
+
+    <script>
+      let party = window.localStorage.getItem('party');
+      let diner = window.localStorage.getItem('diner');
+      let aantal = window.localStorage.getItem('aantal');
+
+      let bedrag = 0;
+      if (party) { bedrag += 15}
+      if (diner) { bedrag += 30}
+      let totaal = aantal * bedrag
+      document.getElementById('totaal').innerText = totaal
+
+    </script>
     
   </body>
 </html>

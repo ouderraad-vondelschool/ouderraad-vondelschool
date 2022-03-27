@@ -1,55 +1,131 @@
 <html>
   <head>
-    <title>OR VS</title>
+    <title>Ouderfeest Vondelschool</title>
     <link rel="stylesheet" href="./css/vs.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
   </head>
   <body>
     <div class="wrapper">
       <h2>OR Vondelschool presents</h2>
-      <h1>Vondel Summer Party</h1>
+      <h1></h1>
+      <h1 class="highlight wrapper">
+        <span>Vondel</span>
+        <span class="large">Summer</span>
+        <span>Party</span></h1>
       <h2>10 juni</h2>
     </div>
 
     <div class="wrapper">
         <h2>Brouwerskolkje</h2>
         <h3>Brouwerskolkweg 5, Overveen</h3>
-    </div>
-
-    <div class="wrapper">
-      <form action="https://mailthis.to/vondelschool.or@gmail.com"  method="POST" encType="multipart/form-data">
+      </div>
+      
+      <div class="wrapper">
+      <h1>Aanmelden</h1>
+      <form action="https://formspree.io/f/mwkyqqgb"  method="POST" id="aanmeld-form">
         <input type="hidden" name="_subject" value="Aanmelding ouderfeest">
         <input type="hidden" name="_after" value="https://ouderraad-vondelschool.github.io/ouderraad-vondelschool/confirmation.html">
         <ul class="form-wrapper">
           <li class="form-row">
             <label for="name">Naam</label>
-            <input type="text" id="name" autocomplete="name">
+            <input type="text" id="name" name="name" autocomplete="name">
           </li>
           <li class="form-row">
-            <label for="townborn">Email</label>
-            <input type="email" id="email" autocomplete="email">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email">
           </li>
           <li class="form-row">
-            <label for="email">Aantal personen</label>
-            <input type="number" id="aantal">
+            <label for="group">Klas van oudste kind</label>
+            <select name="group">
+              <option value="1/2a">1/2a</option>
+              <option value="1/2b">1/2b</option>
+              <option value="1/2c">1/2c</option>
+              <option value="3">3</option>
+              <option value="3/4">3/4</option>
+              <option value="4">4</option>
+              <option value="5a">5a</option>
+              <option value="5b">5b</option>
+              <option value="6">6</option>
+              <option value="6/7">6/7</option>
+              <option value="7">7</option>
+              <option value="8a">8a</option>
+              <option value="8b">8b</option>
+            </select>
           </li>
           <li class="form-row">
-            <label for="email">Feest</label>
+            <label for="aantal">Aantal personen</label>
+            <input type="number" id="aantal" name="aantal">
+          </li>
+          <li class="form-row">
+            <label for="party">Feest</label>
             <span>
-            <input type="checkbox" id="party" checked="checked">
+            <input type="checkbox" id="party" name="party" checked="checked">
             &euro; 15,- p.p.</span>
           </li>
           <li class="form-row">
-            <label for="email">Walking Diner</label>
+            <label for="diner">Walking Diner</label>
             <span>
-            <input type="checkbox" id="diner">
+            <input type="checkbox" id="diner" name="diner">
            &euro; 30,- p.p.</span>
           </li>
           <li class="form-row">
             <button type="submit">Submit</button>
           </li>
         </ul>
+        <p id="my-form-status"></p>
       </form>
   </div>
+
+<!-- Place this script at the end of the body tag -->
+<script>
+  var form = document.getElementById("aanmeld-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+
+
+    window.localStorage.setItem('aantal', data.get('aantal'));
+    if ('on' === data.get('party')) {
+      window.localStorage.setItem('party', true);
+    } else {
+      window.localStorage.setItem('party', false);
+    }
+    if ('on' === data.get('diner')) {
+      window.localStorage.setItem('diner', true);
+    } else {
+      window.localStorage.setItem('diner', false);
+    }
+
+
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        location.href = "./confirmation.html"
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
 
   </body>
 </html>

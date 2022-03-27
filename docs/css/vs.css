@@ -2,14 +2,23 @@ body {
 	max-width: 1080px; 
 	margin: 0 auto !important; 
 	float: none !important; 
-    
-}
+  font-family: 'Bebas Neue', cursive;
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+
 .wrapper {
     display: flex;
     flex-direction: column;
-    background: rgb(197, 211, 38);
+    background: rgb(211, 211, 211, 0.6);
     margin-bottom: 10vh;
-}
+  }
+  .highlight {
+    border: 10px solid yellow;
+
+  }
 .wrapper > * {
     
     color: white;
@@ -25,6 +34,9 @@ body {
 
 .wrapper > h1 {
     font-size: 2.5rem;
+}
+.wrapper > h1 .large {
+  font-size: 4.5rem;
 }
 .wrapper > h2 {
     font-size: 1.5rem;
@@ -53,7 +65,7 @@ h1, h2, h3 {
     padding: .5em 1em .5em 0;
     flex: 1;
   }
-  .form-row > input,   .form-row > span {
+  .form-row > input,  .form-row select,  .form-row > span {
     flex: 3;
   }
 

@@ -9,7 +9,6 @@
   <body>
     <div class="wrapper">
       <h2>OR Vondelschool presents</h2>
-      <h1></h1>
       <h1 class="highlight wrapper">
         <span>Vondel</span>
         <span class="large">Summer</span>
@@ -51,7 +50,10 @@
           </li>
           <li class="form-row">
             <label for="aantal">Aantal personen</label>
-            <input type="number" id="aantal" name="aantal">
+            <span>
+              <input type="radio" id="aantal" name="aantal" value="1">1 persoon
+              <input type="radio" id="aantal" name="aantal" value="2">2 personen
+            </span>
           </li>
           <li class="form-row">
             <label for="party">Feest</label>
@@ -73,8 +75,18 @@
       </form>
   </div>
 
+
+  <div class="wrapper">
+    <p>Mocht je in een andere samenstelling willen komen, neem dan even contact op via
+      <a href="mailto:vondelschool.or@gmail.com">vondelschool.or@gmail.com</a>
+    </p>
+  </div>
+
+
 <!-- Place this script at the end of the body tag -->
 <script>
+  window.localStorage.clear();
+
   var form = document.getElementById("aanmeld-form");
   
   async function handleSubmit(event) {
@@ -85,14 +97,14 @@
 
     window.localStorage.setItem('aantal', data.get('aantal'));
     if ('on' === data.get('party')) {
-      window.localStorage.setItem('party', true);
+      window.localStorage.setItem('party', 'on');
     } else {
-      window.localStorage.setItem('party', false);
+      window.localStorage.setItem('party', 'off');
     }
     if ('on' === data.get('diner')) {
-      window.localStorage.setItem('diner', true);
+      window.localStorage.setItem('diner', 'on');
     } else {
-      window.localStorage.setItem('diner', false);
+      window.localStorage.setItem('diner', 'off');
     }
 
 

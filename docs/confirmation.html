@@ -7,41 +7,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
   </head>
   <body>
-
     <div class="wrapper">
-      <h2>OR Vondelschool presents</h2>
-      <h1></h1>
-      <h1 class="highlight wrapper">
-        <span>Vondel</span>
-        <span class="large">Summer</span>
-        <span>Party</span></h1>
-      <h2>10 juni</h2>
+      <h2>
+        Bedankt voor de aanmelding voor de Vondel Summer Party op 10 Juni.
+      </h2>
     </div>
 
     <div class="wrapper">
-        <h2>
-          Bedankt voor de aanmelding voor de Vondel Summer Party op 10 Juni.
+        <h2 style="display: none;" id="bv-1-party">
+          <p>De entree voor het ouderfeest voor 1 persoon kost <strong>15 Euro.</strong></p>
+          <p>
+            Deze kun je meteen betalen via dit <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=LQcfftCaT0Ou13AJl-7-5Q">betaalverzoek</a>          
+          </p>
         </h2>
-        <h2>
-          We sturen binnenkort een betaalverzoek per email voor <span id="totaal">...</span> Euro.
+        <h2 style="display: none;" id="bv-1-party-en-diner">
+          <p>De entree voor het ouderfeest incl diner voor 1 persoon kost <strong>45 Euro</strong>.</p>
+          <p>
+            Deze kun je meteen betalen via dit <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=HcAy1t_iTKufgxOe5dfRdA">betaalverzoek</a>          
+          </p>
         </h2>
+
+        <h2 style="display: none;" id="bv-2-party">
+          <p>De entree voor het ouderfeest voor 2 personen kost <strong>30 Euro</strong>.</p>
+          <p>
+            Deze kun je meteen betalen via dit <a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=AojhHdNhSm2fMOmGcEaSQQ">betaalverzoek</a>          
+          </p>
+        </h2>
+        <h2 style="display: none;" id="bv-2-party-en-diner">
+          <p>De entree voor het ouderfeest incl diner voor 2 personen kost <strong>90 Euro</strong>.</p>
+          <p>
+            Deze kun je meteen betalen via dit<a href="https://betaalverzoek.rabobank.nl/betaalverzoek/?id=lbpOP5cOQ4uLLk_MeerwSg">betaalverzoek</a>
+          </p>
+        </h2>
+
     </div>
 
     <div class="wrapper">
-      <h2>Brouwerskolkje</h2>
-      <h3>Brouwerskolkweg 5, Overveen</h3>
+      <h1>Brouwerskolkje</h1>
+      <h2>Brouwerskolkweg 5, Overveen</h2>
+    </div>
+
+    <div class="wrapper">
+      <p>Contact via <a href="mailto:vondelschool.or@gmail.com">vondelschool.or@gmail.com</a>
+      </p>
     </div>
 
     <script>
-      let party = window.localStorage.getItem('party');
-      let diner = window.localStorage.getItem('diner');
+      let party = 'on' === window.localStorage.getItem('party');
+      let diner = 'on' === window.localStorage.getItem('diner');
       let aantal = window.localStorage.getItem('aantal');
 
       let bedrag = 0;
       if (party) { bedrag += 15}
       if (diner) { bedrag += 30}
-      let totaal = aantal * bedrag
-      document.getElementById('totaal').innerText = totaal
+      let totaal = aantal * bedrag;
+
+      let id_of_betaalverzoek_to_show = "bv-" + aantal + "-party";
+      if (diner) {
+        id_of_betaalverzoek_to_show = id_of_betaalverzoek_to_show + "-en-diner";
+      }
+      document.getElementById(id_of_betaalverzoek_to_show).style.display = "inline-grid"
 
     </script>
     

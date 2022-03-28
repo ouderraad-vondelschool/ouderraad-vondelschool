@@ -18,13 +18,12 @@ body {
   }
   .highlight {
     border: 10px solid yellow;
+    margin-bottom: 0px;
+    margin-top: 0px;
 
   }
 .wrapper > * {
-    
     color: white;
-    margin: .1em;
-    padding: .3em;
     border-radius: 3px;
     flex: 1;
     display: flex;
@@ -44,6 +43,10 @@ body {
 }
 .wrapper > h3 {
     font-size: 0.7rem;
+}
+
+.wrapper strong {
+  color: #000099;
 }
 
 h1, h2, h3 {
@@ -79,7 +82,7 @@ h1, h2, h3 {
     font-size: 2.0rem;
   }
 
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
   width : 2.5rem;
   height : 2.5rem;
 }

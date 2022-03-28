@@ -4,10 +4,17 @@ body {
 	float: none !important; 
   font-family: 'Bebas Neue', cursive;
     background-image: url("background.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-position: center center;
   }
   
+  @media screen and (max-width: 767px) {
+    body {
+      background-image: url("background-small.png");
+    }
+  }
+
 
 .wrapper {
     display: flex;

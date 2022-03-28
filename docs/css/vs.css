@@ -8,12 +8,6 @@ body {
     background-size: cover;
     background-position: center center;
   }
-  
-  @media screen and (max-width: 767px) {
-    body {
-      background-image: url("background-small.png");
-    }
-  }
 
 
 .wrapper {
@@ -57,12 +51,13 @@ h1, h2, h3 {
 }
 
 .form-wrapper {
-
     list-style-type: none;
     padding: 0;
     border-radius: 3px;
     width: 100%;
+    font-size: 2.0rem;
   }
+
   .form-row {
     display: flex;
     justify-content: flex-end;
@@ -76,13 +71,24 @@ h1, h2, h3 {
     flex: 3;
   }
 
+  
   .form-row > input,
-  .form-row > button {
+  .form-row > select  ,
+  .form-row > button  {
     padding: .5em;
+    font-size: 2.0rem;
   }
-  .form-row > button {
-   background: gray;
+
+input[type=checkbox] {
+  width : 2.5rem;
+  height : 2.5rem;
+}
+
+  .form-row button {
+   background: #666666;
+   border: 2px solid black;
    color: white;
-   border: 0;
   }
+
+
 

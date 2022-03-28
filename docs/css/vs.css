@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     background: rgb(211, 211, 211, 0.6);
-    margin-bottom: 10vh;
+    margin-bottom: 2vh;
   }
   .highlight {
     border: 10px solid yellow;
@@ -41,8 +41,10 @@ body {
 .wrapper > h2 {
     font-size: 1.5rem;
 }
-.wrapper > h3 {
-    font-size: 0.7rem;
+.wrapper > h3, .wrapper > p {
+    font-size: 1.3rem;
+    margin: 2px 0px;
+    padding: 0px;
 }
 
 .wrapper strong {

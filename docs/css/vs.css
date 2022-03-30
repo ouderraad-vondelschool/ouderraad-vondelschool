@@ -22,6 +22,10 @@ body {
     margin-top: 0px;
 
   }
+
+  .wrapper .wrapper {
+    background: none;
+  }  
 .wrapper > * {
     color: white;
     border-radius: 3px;
@@ -39,12 +43,26 @@ body {
   font-size: 4.5rem;
 }
 .wrapper > h2 {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
+
+.wrapper > h2.section-header {
+  font-size: 2.0rem;
+  text-decoration: underline;
+  margin-bottom: 0px;
+}
+
 .wrapper > h3, .wrapper > p {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin: 2px 0px;
     padding: 0px;
+}
+
+.wrapper > p.footer {
+  min-width: 60%;
+  font-style: italic;
 }
 
 .wrapper strong {

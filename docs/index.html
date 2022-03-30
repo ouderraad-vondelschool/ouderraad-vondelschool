@@ -38,11 +38,11 @@
       <form action="https://formspree.io/f/mwkyqqgb"  method="POST" id="aanmeld-form">
         <ul class="form-wrapper">
           <li class="form-row">
-            <label for="name">Naam</label>
+            <label for="name">Naam *</label>
             <input type="text" id="name" name="name" autocomplete="name">
           </li>
           <li class="form-row">
-            <label for="email">Email</label>
+            <label for="email">Email *</label>
             <input type="email" id="email" name="email" autocomplete="email">
           </li>
           <li class="form-row">
@@ -131,31 +131,39 @@
       window.localStorage.setItem('diner', 'off');
     }
 
+    if ('' === data.get('name')) {
+      document.getElementById("name").focus();
+    } else if ('' === data.get('email')) {
+      document.getElementById("email").focus();
+    } else {
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          location.href = "./confirmation.html"
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
 
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        location.href = "./confirmation.html"
-        form.reset()
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-          } else {
-            status.innerHTML = "Oops! There was a problem submitting your form"
-          }
-        })
-      }
-    }).catch(error => {
-      status.innerHTML = "Oops! There was a problem submitting your form"
-    });
+   
   }
-  form.addEventListener("submit", handleSubmit)
+
+  form.addEventListener("submit", handleSubmit);
 </script>
 
   </body>

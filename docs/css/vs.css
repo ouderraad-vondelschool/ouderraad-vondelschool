@@ -19,7 +19,7 @@ body {
 
 .content-block {
     width: 100%;
-    background: rgb(255, 255, 255, 0.6);
+    background: rgb(255, 255, 255, 0.5);
     margin-bottom: 4vh;
     color: #000000;
     text-align: center;
@@ -39,7 +39,8 @@ body {
 
 .highlight {
     /*4296d1*/
-    background: rgb(66, 150, 224, 0.9);
+    /*#38b6ff*/
+    background: rgb(56, 182, 255, 0.6);
     margin-top: 0;
     color: #ffffff;
     min-width: 60%;
@@ -50,12 +51,12 @@ body {
 
 .cta {
     /*  background-color: #66ff66;  */
-    background: rgb(66, 150, 209, 1.0);
+    background: rgb(56, 182, 255);
     margin-top: 0;
     color: #ffffff;
     min-width: 60%;
     font-family: 'Bebas Neue', cursive;
-    border: 8px  solid #4296d1;
+    border: 6px  solid #38b6ff;
     border-radius: 6px;
     box-shadow: 4px 4px #cccccc;
 }
@@ -103,9 +104,11 @@ h3 .smaller {
 h4 {
     font-size: 2vh;
 }
+h5 {
+    font-size: 1.6vh;
+}
 
-
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     margin: 0px 0px;
     padding: 0px 0px;
 }

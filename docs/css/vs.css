@@ -1,5 +1,8 @@
-body { 
+* {
+    box-sizing: border-box;
+}
 
+body {
     /*font-family: 'Bebas Neue', cursive;*/
     font-family: 'Work Sans', sans-serif;
     background-attachment: fixed;
@@ -19,18 +22,11 @@ body {
     /*font-family: 'Work Sans', sans-serif;*/
     /*font-family: "Kanit", sans-serif;*/
     font-family: "Stint Ultra Condensed", serif;
-    font-size: 7.5vh;
-    font-weight: 400;
-    font-style: normal;
 
   }
 
 
-.centered-content {
-    max-width: 800px;
-	margin: 0 auto !important;
-	float: none !important;
-}
+
 
 .content-block {
     width: 100%;
@@ -41,10 +37,7 @@ body {
     padding: 8px 4px;
 }
 
-.content-block * {
-    text-align: center;
 
-}
 
 .callout {
     border: 6px solid #ffffff;
@@ -90,20 +83,7 @@ body {
 }
 
 
-.section-block section {
-    width: 48%;
-  margin: 0 2%;
-  text-align: center;
-  border: 2px solid #ffffff;
-}
 
-section ul {
-    padding-left: 0px;
-}
-
-section ul li {
-    list-style-type: none;
-}
 
 h1 {
     font-size: 3rem;

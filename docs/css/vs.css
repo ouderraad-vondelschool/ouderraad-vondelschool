@@ -1,4 +1,7 @@
-body {
+body { 
+
+    /*font-family: 'Bebas Neue', cursive;*/
+    font-family: 'Work Sans', sans-serif;
     background-attachment: fixed;
     background: rgb(66,66,139);
     background: linear-gradient(180deg, rgba(66,66,139,1) 0%,
